@@ -1,7 +1,7 @@
 {
-  "name": "apostrophe-boilerplate",
+  "name": "cr-apos-boilerplate",
   "version": "2.0.0",
-  "description": "Minimal Apostrophe Boilerplate",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
@@ -10,10 +10,12 @@
     "type": "git",
     "url": ""
   },
-  "author": "P'unk Avenue",
-  "license": "MIT",
+  "author": "Cloudraker <devs@cloudraker.com>",
+  "license": "UNLICENSED",
+  "private": true,
   "dependencies": {
-    "apostrophe": "^2.47.0"
+    "apostrophe": "^2.67.0",
+    "envalid": "^4.1.4"
   },
   "nodemonConfig": {
     "verbose": true,

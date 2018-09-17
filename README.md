@@ -1,4 +1,4 @@
-# Apostrophe Boilerplate v2.x
+# Cloudraker's Apostrophe Boilerplate
 
 Apostrophe Boilerplate is a minimal starting point for [Apostrophe 2](https://github.com/punkave/apostrophe) projects.
 
