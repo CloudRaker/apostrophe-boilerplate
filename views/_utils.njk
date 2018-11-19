@@ -1,0 +1,7 @@
+{% set emptyImage = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAMSURBVBhXY2BgYAAAAAQAAVzN/2kAAAAASUVORK5CYII=' %}
+
+{%- macro headerImageStyle(image, imageOptions = { size: 'full' }) -%}
+    {%- set headerImgUrl = apos.attachments.url(apos.images.first(image), imageOptions) if image else emptyImage -%}
+    {%- set backgroundPosition = apos.attachments.focalPointToBackgroundPosition(image) if apos.attachments.hasFocalPoint(image) else 'center center' -%}
+    background: url({{ headerImgUrl }}) {{ backgroundPosition }} / cover scroll no-repeat;
+{%- endmacro -%}
