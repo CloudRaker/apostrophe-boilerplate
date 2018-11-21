@@ -9,7 +9,6 @@ const apos = require('apostrophe')({
   // configuring user accounts.
 
   modules: {
-
     // Apostrophe module configuration
 
     // Note: most configuration occurs in the respective
@@ -20,9 +19,14 @@ const apos = require('apostrophe')({
 
     // If a template is not found somewhere else, serve it from the top-level
     // `views/` folder of the project
+    'apostrophe-templates': { viewsFolderFallback: path.join(__dirname, 'views') },
 
     'apostrophe-db-mongo-3-driver': {},
-    'apostrophe-templates': { viewsFolderFallback: path.join(__dirname, 'views') }
+
+    'apostrophe-express': {
+      address: config['ADDRESS'],
+      port: config['PORT']
+    }
 
   }
 });
