@@ -1,34 +1,31 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-TARGET="$1"
-if [ -z "$TARGET" ]; then
-  echo "Usage: ./scripts/sync-down production"
-  echo "(or as appropriate)"
-  exit 1
+usage() {
+    echo "Usage: $0 -u <User> -p <Password>" 1>&2;
+    exit 1;
+}
+
+while getopts "u:p:" o; do
+    case "${o}" in
+        u)
+            USER=${OPTARG}
+        ;;
+        p)
+            PASSWORD=${OPTARG}
+        ;;
+        *)
+            usage
+        ;;
+    esac
+done
+
+if [ -z ${USER+x} ] || [ -z ${PASSWORD+x} ]; then
+    usage
 fi
 
-source deployment/settings || exit 1
-source "deployment/settings.$TARGET" || exit 1
+tempfile=$(mktemp -t cr-apos-sync) || exit 1;
 
-#Enter the Mongo DB name (should be same locally and remotely).
-dbName=$PROJECT
+./remote-backup.sh -f -u ${USER} -p ${PASSWORD} -d ${tempfile} && \
+./local-restore.sh -f -d ${tempfile};
 
-#Enter the Project name (should be what you called it for stagecoach).
-projectName=$PROJECT
-
-#Enter the SSH username/url for the remote server.
-remoteSSH="-p $SSH_PORT $USER@$SERVER"
-rsyncTransport="ssh -p $SSH_PORT"
-rsyncDestination="$USER@$SERVER"
-
-echo "Syncing MongoDB"
-ssh $remoteSSH mongodump -d $dbName -o /tmp/mongodump.$dbName &&
-rsync -av -e "$rsyncTransport" $rsyncDestination:/tmp/mongodump.$dbName/ /tmp/mongodump.$dbName  &&
-ssh $remoteSSH rm -rf /tmp/mongodump.$dbName &&
-# noIndexRestore increases compatibility between 3.x and 2.x,
-# and Apostrophe will recreate the indexes correctly at startup
-mongorestore --noIndexRestore --drop -d $dbName /tmp/mongodump.$dbName/$dbName &&
-echo "Syncing Files" &&
-rsync -av --delete -e "$rsyncTransport" $rsyncDestination:/opt/stagecoach/apps/$projectName/uploads/ ./public/uploads  &&
-echo "Synced down from $TARGET"
-echo "YOU MUST RESTART THE SITE LOCALLY TO REBUILD THE MONGODB INDEXES."
+rm -f ${tempfile};
