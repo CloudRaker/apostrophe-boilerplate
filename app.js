@@ -1,5 +1,6 @@
-const config = require('./config');
+'use strict';
 const path = require('path');
+const config = require('./config');
 
 const apos = require('apostrophe')({
   shortName: 'apostrophe-boilerplate',
@@ -22,11 +23,6 @@ const apos = require('apostrophe')({
     'apostrophe-templates': { viewsFolderFallback: path.join(__dirname, 'views') },
 
     'apostrophe-db-mongo-3-driver': {},
-
-    'apostrophe-express': {
-      address: config['ADDRESS'],
-      port: config['PORT']
-    }
 
   }
 });

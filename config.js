@@ -12,14 +12,14 @@ const config = cleanEnv(
 
     APOS_SESSION_SECRET: str({ devDefault: 'CHANGEME' }),
 
-    APOS_MONGODB_URI: str({ devDefault: undefined }),
-    APOS_S3_BUCKET: str({ devDefault: undefined }),
-    APOS_S3_KEY: str({ devDefault: undefined }),
-    APOS_S3_REGION: str({ devDefault: undefined }),
-    APOS_S3_SECRET: str({ devDefault: undefined })
+    APOS_MONGODB_URI: str({ devDefault: '' }),
+    APOS_S3_BUCKET: str({ default: '' }),
+    APOS_S3_KEY: str({ default: '' }),
+    APOS_S3_REGION: str({ default: '' }),
+    APOS_S3_SECRET: str({ default: '' })
   },
   {
-    dotEnvPath: path.join(__dirname, '.env'),
+    dotEnvPath: process.env['CONFIG_FILE'] || path.join(__dirname, '.env'),
     strict: false
   }
 );
