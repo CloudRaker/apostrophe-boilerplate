@@ -25,7 +25,9 @@ fi
 
 tempfile=$(mktemp -t cr-apos-sync) || exit 1;
 
-./remote-backup.sh -f -u ${USER} -p ${PASSWORD} -d ${tempfile} && \
-./local-restore.sh -f -d ${tempfile};
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+${DIR}/remote-backup.sh -f -u ${USER} -p ${PASSWORD} -d ${tempfile} && \
+${DIR}/local-restore.sh -f -d ${tempfile};
 
 rm -f ${tempfile};
