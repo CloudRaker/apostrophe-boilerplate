@@ -18,6 +18,11 @@ const apos = require('apostrophe')({
     // However any modules that are not present by default in Apostrophe must at
     // least have a minimal configuration here: `moduleName: {}`
 
+    'apostrophe-docs': {
+      // present clear error message every time a slug is in conflict, forcing a manual choice
+      deconflictSlugs: false
+    },
+
     // If a template is not found somewhere else, serve it from the top-level
     // `views/` folder of the project
     'apostrophe-templates': { viewsFolderFallback: path.join(__dirname, 'views') },
