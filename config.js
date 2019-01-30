@@ -1,29 +1,33 @@
 'use strict';
 const path = require('path');
-const { cleanEnv, host, port, str } = require('envalid');
+const envalid = require('envalid');
+const { str, host, port } = envalid;
 
-const envTarget = process.env;
-
-const config = cleanEnv(
-  envTarget,
+const config = envalid.cleanEnv(
+  process.env,
   {
     ADDRESS: host({ devDefault: 'localhost', default: '0.0.0.0' }),
     PORT: port({ devDefault: 3000 }),
 
-    APOS_SESSION_SECRET: str({ devDefault: 'CHANGEME' }),
+    SENDGRID_API_KEY: str({ devDefault: '' }),
+    SENDGRID_NEWSLETTER_LIST_ID: str({ devDefault: '' }),
+
+    SESSION_SECRET: str({ devDefault: 'CHANGEME' }),
 
     APOS_MONGODB_URI: str({ devDefault: '' }),
-    APOS_S3_BUCKET: str({ default: '' }),
-    APOS_S3_KEY: str({ default: '' }),
-    APOS_S3_REGION: str({ default: '' }),
-    APOS_S3_SECRET: str({ default: '' })
+    APOS_S3_BUCKET: str({ devDefault: '' }),
+    APOS_S3_KEY: str({ devDefault: '' }),
+    APOS_S3_REGION: str({ devDefault: '' }),
+    APOS_S3_SECRET: str({ devDefault: '' }),
+
+    REDISCLOUD_URL: str({ devDefault: '' })
   },
   {
-    dotEnvPath: process.env['CONFIG_FILE'] || path.join(__dirname, '.env'),
-    strict: false
+    dotEnvPath: path.join(__dirname, '.env'),
+    strict: true
   }
 );
 
 module.exports = config;
 
-Object.assign(envTarget, config);
+Object.assign(process.env, config);

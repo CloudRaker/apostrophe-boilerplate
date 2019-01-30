@@ -5,7 +5,10 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "debug": "node $NODE_DEBUG_OPTION app.js"
+    "debug": "node $NODE_DEBUG_OPTION app.js",
+    "debug-monitor": "BLUEBIRD_DEBUG=1 LOGGY_STACKS=true BRUNCH_DEVTOOLS=1 node --trace-warnings $NODE_DEBUG_OPTION ./node_modules/.bin/brunch watch --server -d",
+    "dev": "brunch watch --server",
+    "njk": "scripts/nunjuckify.sh"
   },
   "repository": {
     "type": "git",
@@ -15,9 +18,21 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "apostrophe": "^2.72.1",
+    "accept-language": "^3.0.18",
+    "apostrophe": "^2.74.0",
     "apostrophe-db-mongo-3-driver": "^2.0.1",
-    "envalid": "^4.1.4"
+    "connect-redis": "^3.4.0",
+    "envalid": "^4.1.4",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "apostrophe-monitor": "^2.0.2",
+    "babel-brunch": "^7.0.0",
+    "brunch": "^2.10.17",
+    "less-brunch": "^2.10.0"
+  },
+  "resolutions": {
+    "less": "^3.9.0"
   },
   "nodemonConfig": {
     "verbose": true,
@@ -31,6 +46,7 @@
       "public/css/master-*.less",
       "data"
     ],
-    "ext": "json, js, html, less"
+    "ext": "json, js, html, less",
+    "browserslist": "> 0.25%, not dead"
   }
 }
