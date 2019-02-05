@@ -28,8 +28,9 @@
   "devDependencies": {
     "apostrophe-monitor": "^2.0.2",
     "babel-brunch": "^7.0.0",
+    "bootstrap": "^4.2.1",
     "brunch": "^2.10.17",
-    "less-brunch": "^2.10.0"
+    "sass-brunch": "^2.10.8"
   },
   "resolutions": {
     "less": "^3.9.0"

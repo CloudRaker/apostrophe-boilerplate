@@ -7,7 +7,7 @@ exports.files = {
       'js/site.js': /^src/
     }
   },
-  stylesheets: { joinTo: 'css/site.css' }
+  stylesheets: { joinTo: { 'css/site.css': /^src/ } }
 };
 
 exports.paths = {
@@ -20,6 +20,9 @@ exports.plugins = {
     'presets': [
       ['@babel/preset-env', { 'useBuiltIns': 'entry' }]
     ]
+  },
+  sass: {
+    precision: 8
   }
 };
 
