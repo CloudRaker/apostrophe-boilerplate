@@ -20,7 +20,7 @@ const config = envalid.cleanEnv(
     APOS_S3_REGION: str({ devDefault: '' }),
     APOS_S3_SECRET: str({ devDefault: '' }),
 
-    REDISCLOUD_URL: str({ devDefault: '' })
+    REDISCLOUD_URL: str({ default: '' })
   },
   {
     dotEnvPath: path.join(__dirname, '.env'),
