@@ -639,9 +639,10 @@ apostrophe-db-mongo-3-driver@^2.0.1:
     mongodb "^3.1.1"
     qs "^6.5.2"
 
-apostrophe-monitor@^2.0.2:
+apostrophe-monitor@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/apostrophe-monitor/-/apostrophe-monitor-2.0.4.tgz#598c1732b8ddaf1cae156e0b5f404e5b41f60372"
+  integrity sha512-XLlf6Jv/izA1hPARHQB4/JenT0s6BgPW3XU2BMVi0EbQLxgjVNWlkj744p7v+kfij4U1XX33Ry4OEFGBNSmKOQ==
   dependencies:
     anymatch "^2.0.0"
     chokidar "^2.0.4"
@@ -650,9 +651,10 @@ apostrophe-monitor@^2.0.2:
     node-hook "^1.0.0"
     regexp-quote "0.0.0"
 
-apostrophe@^2.74.0:
-  version "2.75.1"
-  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.75.1.tgz#d444dc2ed86991a377a8849a3c209be1539f9d9d"
+apostrophe@^2.76.0:
+  version "2.76.0"
+  resolved "https://registry.yarnpkg.com/apostrophe/-/apostrophe-2.76.0.tgz#9a9d4ef9ec4753e4f23e9241abaa67a59f7d352a"
+  integrity sha512-+Dwut/0p5QKSNTIb5DOhcqhMtYBZ4NfVnQMEjredcZqT0GNTfk15bewdPl5J11jpYvCYDzbWmt0CWWFrmdZFFA==
   dependencies:
     "@sailshq/lodash" "^3.10.3"
     async "^1.5.2"

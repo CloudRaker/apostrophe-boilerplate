@@ -8,5 +8,4 @@ function initAll() {
 
 }
 
-$(document).ready(initAll);
-document.addEventListener('swup:contentReplaced', initAll);
+$(initAll);
