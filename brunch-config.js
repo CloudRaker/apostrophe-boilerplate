@@ -1,18 +1,50 @@
 // See http://brunch.io for documentation.
+const path = require('path');
+const globby = require('globby');
+
+const modulesRoot = path.resolve(__dirname, 'lib', 'modules');
+const outputRoot = path.resolve(modulesRoot, 'apostrophe-assets', 'public');
+
+const jsFilePattern = path.join(modulesRoot, '**', 'src', '**', '*.js');
+
+const jsSources = globby.sync(jsFilePattern).map(x => path.relative(__dirname, x));
+
+const jsSourceDirs = [...(new Set(jsSources.map(x => path.dirname(x))))];
+
+const perModuleJsTargets = jsSources.reduce(
+  (acc, source) => {
+    const targetFile = path.relative(
+      outputRoot,
+      source.replace('/src/', '/public/')
+    );
+
+    acc[targetFile] = source;
+    return acc;
+  },
+  {}
+);
 
 exports.files = {
   javascripts: {
     joinTo: {
-      'js/vendor.js': /^(?!src)/,
-      'js/site.js': /^src/
+      'js/vendor.js': /^node_modules/,
+      'js/site.js': /^src/,
+      ...perModuleJsTargets
     }
   },
-  stylesheets: { joinTo: { 'css/site.css': /^src/ } }
+  stylesheets: {
+    joinTo: {
+      'css/site.css': /^src/
+    }
+  }
 };
 
 exports.paths = {
-  public: 'lib/modules/apostrophe-assets/public',
-  watched: ['src']
+  public: outputRoot,
+  watched: [
+    'src',
+    ...jsSourceDirs
+  ]
 };
 
 exports.plugins = {
@@ -33,7 +65,7 @@ exports.modules = {
 };
 
 exports.server = {
-  path: 'index.js'
+  path: 'brunch-server.js'
 };
 
 
@@ -45,7 +77,7 @@ function getOrCreateStyleReloader() {
   if (cachedStyleReloader) {
     return cachedStyleReloader;
   }
-  const serverLoader = require('./index');
+  const serverLoader = require('./brunch-server');
   const aposRoot = serverLoader.aposRoot;
   if (aposRoot) {
     const aposAssets = aposRoot.modules['apostrophe-assets'];
