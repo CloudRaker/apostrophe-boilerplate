@@ -19,7 +19,7 @@
   "private": true,
   "dependencies": {
     "accept-language": "^3.0.18",
-    "apostrophe": "^2.76.0",
+    "apostrophe": "^2.76.1",
     "apostrophe-db-mongo-3-driver": "^2.0.1",
     "connect-redis": "^3.4.0",
     "envalid": "^4.1.4",
@@ -30,6 +30,7 @@
     "babel-brunch": "^7.0.0",
     "bootstrap": "^4.2.1",
     "brunch": "^2.10.17",
+    "globby": "^9.0.0",
     "sass-brunch": "^2.10.8"
   },
   "resolutions": {
