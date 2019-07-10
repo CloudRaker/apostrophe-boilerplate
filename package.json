@@ -1,5 +1,5 @@
 {
-  "name": "cr-apos-boilerplate",
+  "name": "apostrophe-boilerplate",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -14,7 +14,7 @@
     "type": "git",
     "url": ""
   },
-  "author": "Cloudraker <devs@cloudraker.com>",
+  "author": "CloudRaker <devs@cloudraker.com>",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
@@ -35,6 +35,9 @@
   },
   "resolutions": {
     "less": "^3.9.0"
+  },
+  "engines": {
+    "node": ">=8"
   },
   "browserslist": "> 0.25%, not dead"
 }
