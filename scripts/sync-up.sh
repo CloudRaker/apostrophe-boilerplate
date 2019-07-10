@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 TARGET="$1"
 if [ -z "$TARGET" ]; then
