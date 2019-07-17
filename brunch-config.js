@@ -50,7 +50,13 @@ exports.paths = {
 exports.plugins = {
   babel: {
     'presets': [
-      ['@babel/preset-env', { 'useBuiltIns': 'entry' }]
+      [
+        '@babel/preset-env',
+        {
+          useBuiltIns: 'entry',
+          corejs: 3
+        }
+      ]
     ]
   },
   sass: {

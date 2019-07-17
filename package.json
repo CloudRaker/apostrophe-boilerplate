@@ -5,10 +5,11 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "dev": "brunch watch --server",
     "debug": "node $NODE_DEBUG_OPTION app.js",
     "debug-monitor": "BLUEBIRD_DEBUG=1 LOGGY_STACKS=true BRUNCH_DEVTOOLS=1 node --trace-warnings $NODE_DEBUG_OPTION ./node_modules/.bin/brunch watch --server -d",
-    "dev": "brunch watch --server",
-    "njk": "scripts/nunjuckify.sh"
+    "build": "brunch build",
+    "release": "APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "babel-brunch": "^7.0.1",
     "bootstrap": "^4.3.1",
     "brunch": "^2.10.17",
+    "core-js": "3",
     "globby": "^10.0.1",
     "sass-brunch": "^2.10.8"
   },
