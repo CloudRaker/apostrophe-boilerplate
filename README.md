@@ -2,6 +2,12 @@
 
 This boilerplate is a minimal starting point for [Apostrophe 2](https://github.com/punkave/apostrophe) projects built by CloudRaker.
 
+### Creating a project using this Boilerplate
+
+```
+npm install -g apostrophe-cli && \
+apostrophe create-project <shortname-without-spaces> --boilerplate https://github.com/CloudRaker/apostrophe-boilerplate.git
+```
 
 ---
 <a name="tableOfContents"></a>

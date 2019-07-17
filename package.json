@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/CloudRaker/apostrophe-boilerplate.git"
   },
   "author": "CloudRaker <devs@cloudraker.com>",
   "license": "UNLICENSED",
