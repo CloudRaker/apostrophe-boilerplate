@@ -2,6 +2,6 @@
 
 {%- macro headerImageStyle(image, imageOptions = { size: 'full' }) -%}
     {%- set headerImgUrl = apos.attachments.url(apos.images.first(image), imageOptions) if image else emptyImage -%}
-    {%- set backgroundPosition = apos.attachments.focalPointToBackgroundPosition(image) if apos.attachments.hasFocalPoint(image) else 'center center' -%}
+    {%- set backgroundPosition = apos.attachments.focalPointToBackgroundPosition(apos.images.first(image)) if apos.attachments.hasFocalPoint(apos.images.first(image)) else 'center center' -%}
     background: url({{ headerImgUrl }}) {{ backgroundPosition }} / cover scroll no-repeat;
 {%- endmacro -%}

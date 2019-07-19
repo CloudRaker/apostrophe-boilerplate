@@ -5,7 +5,10 @@ function initAll() {
   // import all *.js files at same level
   // and `init()` them
   modulesList.forEach(function (m) {
-    require('./' + m + '.js').init();
+    const loadedModule = require('./' + m + '.js');
+    if (typeof loadedModule.init === 'function') {
+      loadedModule.init();
+    }
   });
 
 }
