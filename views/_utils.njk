@@ -1,7 +1,14 @@
 {% set emptyImage = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAMSURBVBhXY2BgYAAAAAQAAVzN/2kAAAAASUVORK5CYII=' %}
 
 {%- macro headerImageStyle(image, imageOptions = { size: 'full' }) -%}
-    {%- set headerImgUrl = apos.attachments.url(apos.images.first(image), imageOptions) if image else emptyImage -%}
-    {%- set backgroundPosition = apos.attachments.focalPointToBackgroundPosition(apos.images.first(image)) if apos.attachments.hasFocalPoint(apos.images.first(image)) else 'center center' -%}
+  {#  Dynamically set image based on whether its an area or an attachment #}
+  {%- if image.length -%}
+    {%- set headerImg = image -%}
+  {%- else -%}
+    {%- set headerImg = apos.images.first(image) -%}
+  {%- endif -%}
+
+    {%- set headerImgUrl = apos.attachments.url(headerImg, imageOptions) if image else emptyImage -%}
+    {%- set backgroundPosition = apos.attachments.focalPointToBackgroundPosition(headerImg) if apos.attachments.hasFocalPoint(headerImg) else 'center center' -%}
     background: url({{ headerImgUrl }}) {{ backgroundPosition }} / cover scroll no-repeat;
 {%- endmacro -%}

@@ -6,6 +6,9 @@
 #}
 
 {% extends "outerLayoutBase.njk" %}
+{%- block locale -%}
+  {{ apos.modules['apostrophe-workflow'].lang() }}
+{%- endblock -%}
 
 {# ALL SCRIPTS IN HEAD WITH `defer` #}
 {% block extraHead %}
@@ -13,12 +16,12 @@
     {{ apos.assets.scripts(data.when) }}
     <script type="text/javascript">
       document.addEventListener(
-        'DOMContentLoaded',
-        function () {
-          {{ data.js.globalCalls }}
-          {{ data.js.reqCalls }}
-        },
-        { passive: true, once: true }
+          'DOMContentLoaded',
+          function () {
+            {{ data.js.globalCalls }}
+            {{ data.js.reqCalls }}
+          },
+          {passive: true, once: true}
       );
     </script>
   {% endif %}
