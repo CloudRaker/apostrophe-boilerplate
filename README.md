@@ -32,13 +32,16 @@ apostrophe create-project <shortname-without-spaces> --boilerplate https://githu
 <a name="gettingStarted"></a>
 ## Getting Started
 
-To get started, we recommend taking a look at [the guide to create your first Apostrophe project](http://apostrophecms.org/docs/tutorials/getting-started/creating-your-first-project.html). You could also take a look at [Apostrophe's CLI](https://github.com/punkave/apostrophe) or simply fork this repository.
+To get started, we recommend taking a look at [the guide to create your first Apostrophe project](https://docs.apostrophecms.org/getting-started/creating-your-first-project.html). You could also take a look at [Apostrophe's CLI](https://github.com/punkave/apostrophe) or simply fork this repository.
 
 
 <a name="installTechRequirements"></a>
 ### Install Technical Requirements
 
 - [Node Version Manager](https://github.com/creationix/nvm#installation).
+  - This project requires **Node >=8 <10 **.
+  - You can check which version of Node is currently in use by running `nvm current` in a Terminal instance.
+  - In the case you have a different version running, you can install the latest v8.x by running `nvm install 8`.
 
 
 The following components can be installed with [Brew](https://brew.sh/), if they are not already available on your machine:
@@ -62,7 +65,7 @@ brew install redis
 You can clone it with your preferred GUI, or run this command in the Terminal:
 
 ```bash
-git clone https://github.com/CloudRaker/cr-website.git
+git clone https://github.com/CloudRaker/apostrophe-boilerplate.git
 ```
 
 Once you have a local copy of this project to work from, make sure to install its dependencies with `npm install`.

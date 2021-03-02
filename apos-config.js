@@ -58,13 +58,8 @@ const aposOptions = {
 
     'apostrophe-db-mongo-3-driver': {},
 
-    // To enable workflow:
-    // 1. Uncomment apostrophe-workflow module below:
-    // 'apostrophe-workflow': {},
+    'apostrophe-workflow': {},
 
-    // 2. Install workflow: `yarn add apostrophe-workflow`
-    // 3. Add missing locales: `node app apostrophe-workflow:add-missing-locales --live`
-    
     ...customModules
   }
 };
