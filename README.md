@@ -9,6 +9,20 @@ npm install -g apostrophe-cli && \
 apostrophe create-project <shortname-without-spaces> --boilerplate https://github.com/CloudRaker/apostrophe-boilerplate.git
 ```
 
+### Adding custom modules
+
+Normally, after creating custom modules, a basic configuration must be added to the `modules` object in `aposOptions` (can be found in apos-config.js). To avoid this, we have set up a shortcut that finds all prefixed modules and adds them to the `modules` object:
+
+```
+const customModuleNames = fs.readdirSync(path.resolve(__dirname, 'lib', 'modules'))
+.filter(dp => /^custom-/.test(dp));
+```
+
+Before creating new modules, replace `^custom-` with a prefix that makes sense for the project. (ex. for the CloudRaker website, we use `^cr-`). Then, when using the apostrophe-cli to add new modules, always start with this prefix (ex. `apos create-widget cr-button`).
+
+
+
+
 ---
 <a name="tableOfContents"></a>
 ## Table of contents
