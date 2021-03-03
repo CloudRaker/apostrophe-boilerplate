@@ -9,19 +9,6 @@ npm install -g apostrophe-cli && \
 apostrophe create-project <shortname-without-spaces> --boilerplate https://github.com/CloudRaker/apostrophe-boilerplate.git
 ```
 
-### Adding custom modules
-
-Normally, after creating custom modules, a basic configuration must be added to the `modules` object in `aposOptions` (can be found in apos-config.js). To avoid this, we have set up a shortcut that finds all prefixed modules and adds them to the `modules` object:
-
-```
-const customModuleNames = fs.readdirSync(path.resolve(__dirname, 'lib', 'modules'))
-.filter(dp => /^custom-/.test(dp));
-```
-
-Before creating new modules, replace `^custom-` with a prefix that makes sense for the project. (ex. for the CloudRaker website, we use `^cr-`). Then, when using the apostrophe-cli to add new modules, always start with this prefix (ex. `apos create-widget cr-button`).
-
-
-
 
 ---
 <a name="tableOfContents"></a>
@@ -29,7 +16,6 @@ Before creating new modules, replace `^custom-` with a prefix that makes sense f
 
 - [Getting Started](#gettingStarted)
   - [Install Technical Requirements](#installTechRequirements)
-  - [Clone Git Repository](#cloneGitRepo)
   - [Start Database Services](#startServices)
   - [Create Admin User Account](#createAdminUser)
   - [Run Site Locally](#runSiteLocally)
@@ -37,8 +23,8 @@ Before creating new modules, replace `^custom-` with a prefix that makes sense f
   - [Post-Clone Chores](#postCloneChores)
   - [NPM Scripts](#npmScripts)
   - [Brunch](#brunch)
-  - [Apostrophe Config](#apostropheConfig)
   - [Extending and Creating Apostrophe Modules](#apostropheModules)
+  - [Apostrophe Config](#apostropheConfig)
 - [References](#references)
 
 
@@ -71,19 +57,6 @@ brew install mongodb
 ```bash
 brew install redis
 ```
-
-
-<a name="cloneGitRepo"></a>
-### Clone Git Repository
-
-You can clone it with your preferred GUI, or run this command in the Terminal:
-
-```bash
-git clone https://github.com/CloudRaker/apostrophe-boilerplate.git
-```
-
-Once you have a local copy of this project to work from, make sure to install its dependencies with `npm install`.
-
 
 <a name="startServices"></a>
 ### Start Database Services
@@ -158,6 +131,19 @@ In order to do so, [Brunch](https://brunch.io/) was chosen to compile ES6 JavaSc
 You most likely will not need to run this script directly, as it is used by the `npm run dev` script. Contact a CloudRaker dev admin if you need more information.
 
 
+<a name="apostropheModules"></a>
+### Extending and Creating Apostrophe Modules
+
+With Apostrophe, you extend their modules and create new ones, all in the `lib/modules` directory.
+
+
+#### Naming Conventions
+
+When creating new modules, the convention is to prefix their an abbreviation of the project name. For example:
+
+- `cr-` for CloudRaker (e.g. `cr-careers-pages`, `cr-social-links-widgets`)
+
+
 <a name="apostropheConfig"></a>
 ### Apostrophe Config
 
@@ -168,18 +154,12 @@ Not much is to be edited from the config located at `./apos-config.js`, but at l
 
 Otherwise, the modules defined in the `lib/modules` directory will be added by `...customModules` [rest parameter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) at the end of the modules definition.
 
+In order for this to work, you will need to replace `^custom-` in the `customModuleNames` variable with the prefiix you chose in the last section (ex. `^cr-`)
 
-<a name="apostropheModules"></a>
-### Extending and Creating Apostrophe Modules
-
-With Apostrophe, you extend their modules and create new ones, all in the `lib/modules` directory.
-
-#### Naming Conventions
-
-When creating new modules, the convention is to prefix their an abbreviation of the project name. For example:
-
-- `cr-` for CloudRaker (e.g. `cr-careers-pages`, `cr-social-links-widgets`)
-
+```
+const customModuleNames = fs.readdirSync(path.resolve(__dirname, 'lib', 'modules'))
+.filter(dp => /^custom-/.test(dp));
+```
 
 ---
 <a name="references"></a>
