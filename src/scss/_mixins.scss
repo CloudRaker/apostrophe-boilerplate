@@ -1,0 +1,51 @@
+// Typography
+@mixin title {
+  font-size: 45px;
+  line-height: 55px;
+
+  @media only screen and (min-width: $breakpointMd) {
+    font-size: 60px;
+    line-height: 74px;
+  }
+}
+
+@mixin subtitle {
+  font-size: 26px;
+  line-height: 35px;
+
+  @media only screen and (min-width: $breakpointMd) {
+    font-size: 38px;
+    line-height: 49px;
+  }
+}
+
+@mixin smallSubtitle {
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 1px;
+  margin-bottom: 1.5em !important;
+
+  @media only screen and (min-width: $breakpointMd) {
+    font-size: 20px;
+  }
+}
+
+@mixin paragraph {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin bulletedList {
+  li {
+    margin-bottom: 1em;
+
+    &::before {
+      content: "•";
+      padding-right: 1em;
+    }
+  }
+}
+
+
+

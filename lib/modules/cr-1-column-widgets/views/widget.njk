@@ -1,0 +1,21 @@
+{% set defaultColumnOptions = {
+  blockLevelControls: true,
+  widgets: {
+    'apostrophe-rich-text': apos.typo.standard,
+    'apostrophe-images': {}
+  }
+} %}
+
+{% macro singleColumn(content, alignment, topPadding, noGutters) %}
+  <div
+    class="container cr-column {{ alignment }} {{ 'mt-5' if not data.widget.topPadding }} {{ 'full-width' if data.widget.noGutters }}">
+    {{ content }}
+  </div>
+{% endmacro %}
+
+{{ singleColumn(
+  content = apos.area(data.widget, 'column', data.options.columnOptions if data.options.columnOptions else defaultColumnOptions),
+  alignment = data.widget.alignment,
+  topPadding = data.widget.topPadding,
+  noGutters = data.widget.noGutters
+) }}

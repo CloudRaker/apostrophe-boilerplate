@@ -60,6 +60,11 @@ const aposOptions = {
 
     'apostrophe-workflow': {},
 
+    // Boilerplate modules
+    'cr-typography': {},
+    'cr-1-column-widgets': {},
+
+
     ...customModules
   }
 };

@@ -1,0 +1,64 @@
+// custom container
+.container {
+  &.full-width {
+    max-width: 100%;
+    padding: 0;
+
+    .cr-column {
+      @media (min-width: $breakpointLg) {
+        padding-right: 18%;
+        padding-left: 18%;
+      }
+
+      @media (min-width: $breakpointXxl) {
+        padding-right: 28%;
+        padding-left: 28%;
+      }
+    }
+  }
+}
+
+// Columns
+.cr-column {
+  margin-top: 2em;
+
+  @media (min-width: $breakpointMd) {
+    margin-top: 5em;
+  }
+
+  // extra padding on 3 column rich text areas
+  .col-md-4, .col-lg-4 {
+    padding-bottom: 3em;
+
+    @media (min-width: $breakpointMd) {
+      padding-bottom: 0;
+
+      .apos-area-widget-wrapper {
+        padding-right: .5em;
+      }
+    }
+  }
+
+  .col-md-6 {
+    padding-bottom: 3em;
+
+    @media (min-width: $breakpointMd) {
+      padding-bottom: 0;
+    }
+  }
+}
+
+// Two column widget
+.equal-height-row {
+  height: 100%;
+}
+
+.full-width {
+  .col-md-6 {
+    .equal-height-row {
+      .apos-rich-text {
+        padding: 0 5em;
+      }
+    }
+  }
+}

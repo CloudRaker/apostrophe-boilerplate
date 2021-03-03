@@ -1,0 +1,22 @@
+// Hide image title on apostrophe-images
+.apos-image-widget-image-title {
+  display: none;
+}
+
+// Add scroll bar to table
+.apos-rich-text {
+  max-width: 100%;
+  overflow: auto;
+
+  table {
+    margin-top: 2em;
+  }
+}
+
+.apos-area-widgets {
+  height: 100%;
+}
+
+.apos-rich-text span {
+  background-color: transparent !important;
+}
