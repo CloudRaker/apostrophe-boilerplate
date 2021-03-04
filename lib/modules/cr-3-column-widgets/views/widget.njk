@@ -1,0 +1,32 @@
+{% set columnOptions = {
+  blockLevelControls: true,
+  widgets: {
+    'apostrophe-rich-text': apos.typo.standard,
+    'apostrophe-images': {},
+    'cr-button': {}
+  }
+} %}
+
+{% macro threeColumn(left, center, right, textAlignment, verticalAlignment) %}
+  <div class="container cr-column">
+    <div class="row {{ textAlignment }} {{ verticalAlignment }}">
+      <div class="col-md-4 col-12">
+        {{ left }}
+      </div>
+      <div class="col-md-4 col-12">
+        {{ center }}
+      </div>
+      <div class="col-md-4 col-12">
+        {{ right }}
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+{{ threeColumn(
+  left = apos.area(data.widget, 'leftContent', columnOptions),
+  center = apos.area(data.widget, 'centerContent', columnOptions),
+  right = apos.area(data.widget, 'rightContent', columnOptions),
+  textAlignment = data.widget.textAlignment,
+  verticalAlignment = data.widget.verticalAlignment
+) }}

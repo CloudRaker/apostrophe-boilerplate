@@ -1,0 +1,34 @@
+{% set defaultColumnOptions = {
+  blockLevelControls: true,
+  widgets: {
+    'apostrophe-rich-text': apos.typo.standard,
+    'apostrophe-images': {},
+    'cr-button': {}
+  }
+} %}
+
+{% macro twoColumn(left, right, alignment, noGutters, topPadding, verticalAlignment) %}
+  <div class="container cr-column {{ 'full-width' if noGutters }} {{ 'mt-0' if not topPadding }}">
+    <div class="row d-flex flex-wrap {{ 'm-0' if noGutters }} align-items-{{ verticalAlignment }}">
+      <div class="col-md-6 col-12 {{ alignment }} {{ 'p-0' if noGutters }}">
+        <div class="equal-height-row">
+          {{ left }}
+        </div>
+      </div>
+      <div class="col-md-6 col-12 {{ alignment }} {{ 'p-0' if noGutters }}">
+        <div class="equal-height-row">
+          {{ right }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+{{ twoColumn(
+  left = apos.area(data.widget, 'leftContent', data.options.columnOptions if data.options.columnOptions else defaultColumnOptions),
+  right = apos.area(data.widget, 'rightContent', data.options.columnOptions if data.options.columnOptions else defaultColumnOptions),
+  alignment = data.widget.alignment,
+  noGutters = data.widget.noGutters,
+  topPadding = data.widget.topPadding,
+  verticalAlignment = data.widget.verticalAlignment
+) }}

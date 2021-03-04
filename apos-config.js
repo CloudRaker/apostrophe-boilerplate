@@ -63,7 +63,9 @@ const aposOptions = {
     // Boilerplate modules
     'cr-typography': {},
     'cr-1-column-widgets': {},
-
+    'cr-2-column-widgets': {},
+    'cr-3-column-widgets': {},
+    'cr-button-widgets': {},
 
     ...customModules
   }

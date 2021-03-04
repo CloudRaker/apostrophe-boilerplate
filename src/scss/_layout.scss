@@ -23,12 +23,12 @@
   margin-top: 2em;
 
   @media (min-width: $breakpointMd) {
-    margin-top: 5em;
+    margin-top: 3em;
   }
 
   // extra padding on 3 column rich text areas
   .col-md-4, .col-lg-4 {
-    padding-bottom: 3em;
+    padding-bottom: 2em;
 
     @media (min-width: $breakpointMd) {
       padding-bottom: 0;

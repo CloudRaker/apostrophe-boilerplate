@@ -1,0 +1,17 @@
+{% macro button(text, buttonType, linkUrl, buttonProps, arrow) %}
+  <a class="cr-button btn"
+     href="{{ linkUrl }}" {{ buttonProps | safe }} {{ 'target="_blank"' if buttonType == 'externalLink' }}>
+    {{ text }}
+    {% if arrow %}
+      {% include "img/external-link.svg" %}
+    {% endif %}
+  </a>
+{% endmacro %}
+
+{{ button(
+  text = data.widget.text,
+  buttonType = data.widget.buttonType,
+  linkUrl = data.widget.externalLink if data.widget.buttonType == 'externalLink' else data.widget[('_' + data.widget.buttonType | replace('Link', ''))]._url,
+  buttonProps = apos.buttons.propsForButton(data.widget),
+  arrow = data.widget.arrow
+) }}
