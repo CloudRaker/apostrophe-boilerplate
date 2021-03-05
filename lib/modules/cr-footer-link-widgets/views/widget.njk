@@ -1,0 +1,12 @@
+{% macro footerLink(url, title) %}
+  <li class="footer-link">
+    <a href="{{ url }}">
+      {{ title }}
+    </a>
+  </li>
+{% endmacro %}
+
+{{ footerLink(
+  data.widget._page._url,
+  data.widget._page.title
+) }}

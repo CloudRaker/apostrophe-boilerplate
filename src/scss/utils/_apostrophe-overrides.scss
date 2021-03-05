@@ -11,12 +11,16 @@
   table {
     margin-top: 2em;
   }
+
+  span {
+    background-color: transparent !important;
+  }
+
+  ul {
+    @include bulletedList;
+  }
 }
 
 .apos-area-widgets {
   height: 100%;
-}
-
-.apos-rich-text span {
-  background-color: transparent !important;
 }

@@ -1,9 +1,10 @@
-{% set columnOptions = {
+{% set defaultColumnOptions = {
   blockLevelControls: true,
   widgets: {
     'apostrophe-rich-text': apos.typo.standard,
     'apostrophe-images': {},
-    'cr-button': {}
+    'cr-button': {},
+    'cr-embedded-video': {}
   }
 } %}
 
@@ -24,9 +25,9 @@
 {% endmacro %}
 
 {{ threeColumn(
-  left = apos.area(data.widget, 'leftContent', columnOptions),
-  center = apos.area(data.widget, 'centerContent', columnOptions),
-  right = apos.area(data.widget, 'rightContent', columnOptions),
+  left = apos.area(data.widget, 'leftContent', data.options.columnOptions if data.options.columnOptions else defaultColumnOptions),
+  center = apos.area(data.widget, 'centerContent', data.options.columnOptions if data.options.columnOptions else defaultColumnOptions),
+  right = apos.area(data.widget, 'rightContent', data.options.columnOptions if data.options.columnOptions else defaultColumnOptions),
   textAlignment = data.widget.textAlignment,
   verticalAlignment = data.widget.verticalAlignment
 ) }}

@@ -6,9 +6,9 @@
 #}
 
 {% extends "outerLayoutBase.njk" %}
-{%- block locale -%}
+{% block locale %}
   {{ apos.modules['apostrophe-workflow'].lang() }}
-{%- endblock -%}
+{% endblock %}
 
 {# ALL SCRIPTS IN HEAD WITH `defer` #}
 {% block extraHead %}
@@ -41,4 +41,3 @@
     </script>
   {% endif %}
 {% endblock %}
- 

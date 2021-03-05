@@ -5,14 +5,6 @@
 
 {% extends "layout.njk" %}
 
-{% set columnOptions = {
-  blockLevelControls: true,
-  widgets: {
-    'apostrophe-rich-text': apos.typo.standard,
-    'apostrophe-images': {}
-  }
-} %}
-
 {% block main %}
   <section>
     <div class="main-content">
@@ -23,15 +15,6 @@
       </h3>
       <p>This is a very bare bones Apostrophe project. Now, get to work and make a real website!</p>
     </div>
-
-    {{ apos.area(
-      data.page, 'bodyContent', {
-        widgets: {
-          'cr-1-column': { columnOptions: columnOptions },
-          'cr-2-column': { columnOptions: columnOptions },
-          'cr-3-column': { columnOptions: columnOptions }
-        }
-      }) }}
   </section>
 {% endblock %}
 

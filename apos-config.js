@@ -66,6 +66,8 @@ const aposOptions = {
     'cr-2-column-widgets': {},
     'cr-3-column-widgets': {},
     'cr-button-widgets': {},
+    'cr-footer-link-widgets': {},
+    'cr-embedded-video-widgets': {},
 
     ...customModules
   }
