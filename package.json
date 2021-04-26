@@ -20,23 +20,23 @@
   "private": true,
   "dependencies": {
     "accept-language": "^3.0.18",
-    "apostrophe": "^2.116.1",
+    "apostrophe": "^2.117.1",
     "apostrophe-db-mongo-3-driver": "^2.0.1",
-    "apostrophe-workflow": "^2.38.2",
+    "apostrophe-workflow": "^2.38.3",
     "connect-redis": "^3.4.1",
-    "envalid": "^5.0.0",
+    "envalid": "^7.1.0",
     "less": "^3.9.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "oembetter": "0.1.23"
   },
   "devDependencies": {
-    "apostrophe-monitor": "^2.0.5",
+    "apostrophe-monitor": "^2.0.6",
     "babel-brunch": "^7.0.1",
     "bootstrap": "^5.0.0-beta2",
-    "brunch": "^2.10.17",
+    "brunch": "^3.0.0",
     "core-js": "3",
-    "globby": "^10.0.1",
-    "sass-brunch": "^2.10.8"
+    "globby": "^11.0.3",
+    "sass-brunch": "^3.0.0"
   },
   "resolutions": {
     "less": "^3.9.0"
