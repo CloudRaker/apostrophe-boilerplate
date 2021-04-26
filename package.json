@@ -1,6 +1,6 @@
 {
   "name": "apostrophe-boilerplate",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -20,7 +20,7 @@
   "private": true,
   "dependencies": {
     "accept-language": "^3.0.18",
-    "apostrophe": "^2.92.0",
+    "apostrophe": "^2.116.1",
     "apostrophe-db-mongo-3-driver": "^2.0.1",
     "apostrophe-workflow": "^2.38.2",
     "connect-redis": "^3.4.1",
